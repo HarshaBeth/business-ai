@@ -13,7 +13,7 @@ function Chat({formData}) {
         {/* Chat history */}
         <div className='h-[50%] w-full bg-red-500'>
             {formData.map((dat, index) => (
-                <p>{dat}</p>
+                <p key={index}>{dat}</p>
             ))}
         </div>
         {/* Text the AI */}
