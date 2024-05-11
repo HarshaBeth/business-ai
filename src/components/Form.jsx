@@ -3,18 +3,18 @@ import { Textarea } from '@nextui-org/input';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-function Form() {
-    const [formData, setFormData] = useState([]);
+function Form({formData, formDataChange}) {
+    // const [formData, setFormData] = useState([]);
 
     const form = useForm()
     const { register, handleSubmit } = form;
 
     const onSubmit = (data) => {
-
-        inputCopy = [data.objective, data.capacity, data.scalability, data.continuity, data.guidelines];
-        setFormData(inputCopy);
-        console.log(formData);
         
+        let inputCopy = [...formData]
+        inputCopy = [data.objective, data.capacity, data.scalability, data.continuity, data.guidelines];
+        // setFormData(inputCopy);
+        formDataChange(inputCopy);
     }
 
   return (
